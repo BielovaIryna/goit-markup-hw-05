@@ -46,6 +46,8 @@
 	--link-text-letter-spacing: 0.04em;
 	--link-text-line-height: 1.33;
 	--link-text-decoration: underline;
+	--main-transition-duration:250ms;
+	--main-transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
 	font-family: var(--main-font-family);
@@ -93,6 +95,7 @@ button {
 }
 .link {
 	text-decoration: none;
+	
 }
 .btn {
 	font-weight: var(--button-text-font-weight);
@@ -103,9 +106,11 @@ button {
 .item:not(:last-child) {
 	margin-right: 24px;
 }
-.page-header {
-	border-bottom: 1px solid var(--accent-color);
-	box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08); 
+.social-media-link, .hero-btn{
+	transition: background-color var(--main-transition-duration) var(--main-transition-timing-function);
+}
+.main-nav-link, .header-address-item:first-child>.header-address-link, .customers-link{
+	transition: color var(--main-transition-duration) var(--main-transition-timing-function);
 }
 .page-header-container {
 	display: flex;
@@ -162,18 +167,39 @@ button {
 	padding-top: 24px;
 	padding-bottom: 24px;
 }
+
 .main-nav-link:hover,
 .header-address-item:first-child > .header-address-link:hover,
 .main-nav-link:focus,
 .header-address-item:first-child > .header-address-link:focus {
 	color: var(--pressed-state-color);
 }
+
 .main-text {
 	font-weight: var(--body-font-weight);
 	font-size: var(--body-font-size);
 	line-height: var(--body-line-height);
 	letter-spacing: var(--body-letter-spacing);
 	color: var(--text-color);
+}
+
+.main-nav-item{
+	position:relative;
+}
+
+.current-page{
+	color: var(--pressed-state-color);
+}
+.current-page::after{
+	position: absolute;
+	display: block;
+content: "";
+width: 100%;
+height: 4px;
+border-radius: 2px;
+background-color: var(--pressed-state-color);
+left: 0;
+bottom: -20px;
 }
 .hero {
 	max-width: 1440px;
@@ -207,6 +233,7 @@ button {
 	min-width: 169px;
 	height: 56px;
 	margin: 0 auto;
+	
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -308,7 +335,9 @@ button {
 	height: 100%;
 	background-color: var(--primary-brand-color);
 	border-radius: 50%;
+	
 }
+
 .social-media-icon {
 	fill: var(--light-color);
 }
@@ -400,32 +429,17 @@ button {
 	justify-content: center;
 	margin-bottom: 72px;
 }
-.portfolio-list {
-	flex-wrap: wrap;
-	column-gap: 24px;
-	row-gap: 48px;
-	justify-content: center;
-}
-.portfolio-link {
-	display: block;
-	
-}
-.portfolio-link:hover, .portfolio-link:focus{
-	box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-}
-
-.portfolio-card-info {
-	border: 1px solid var(--accent-color);
-	border-top: none;
-	padding: 32px 16px;
-}
-
 .portfolio-filtr-btn {
 	background-color: var(--light-color);
 	color: var(--primary-brand-color);
 	border-radius: 4px;
 	border: 1px solid var(--accent-color);
 	padding: 12px 24px;
+transition: background-color var(--main-transition-duration) var(--main-transition-timing-function
+), color var(--main-transition-duration) var(--main-transition-timing-function
+), border var(--main-transition-duration) var(--main-transition-timing-function
+), box-shadow var(--main-transition-duration) var(--main-transition-timing-function
+);
 
 }
 .portfolio-filtr-btn:hover,
@@ -435,3 +449,47 @@ button {
 	border: 1px solid transparent;
 	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
+.portfolio-list {
+	flex-wrap: wrap;
+	column-gap: 24px;
+	row-gap: 48px;
+	justify-content: center;
+}
+.portfolio-link, .portfolio-link .portfolio-overlay {
+	display: block;
+	transition: box-shadow var(--main-transition-duration) var(--main-transition-timing-function), transform var(--main-transition-duration) var(--main-transition-timing-function) 
+	
+}
+.portfolio-link:hover, .portfolio-link:focus, .portfolio-link:hover .portfolio-overlay, .portfolio-link:focus .portfolio-overlay{
+	box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+	transform: translateY(0);
+}
+
+.portfolio-card-info {
+	border: 1px solid var(--accent-color);
+	border-top: none;
+	padding: 32px 16px;
+}
+
+
+
+.portfolio-thumb{
+	position: relative;
+	overflow: hidden;
+}
+.portfolio-overlay{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	color: var(--light-color);
+	background-color: var(--primary-brand-color);
+	padding: 40px 32px;
+	font-weight: var(--body-font-weight);
+font-size: var(--body-font-size);
+line-height: var(--body-line-height);
+letter-spacing: 0.02em;
+transform: translateY(100%);
+}
+
