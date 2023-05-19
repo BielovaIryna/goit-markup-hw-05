@@ -349,6 +349,7 @@ button {
 	width: calc((100% - 120px) / 6);
 	height: 88px;
 	
+	
 }
 .customers-link {
 	display: flex;
@@ -360,8 +361,7 @@ button {
 	border: 1px solid var(--subtle-text-color);
 	border-radius: 4px;
 	color: var(--subtle-text-color);
-	transition: color var(--main-transition-duration) var(--main-transition-timing-function),
-	border-color var(--main-transition-duration) var(--main-transition-timing-function);
+	transition: border var(--main-transition-duration) var(--main-transition-timing-function), color var(--main-transition-duration) var(--main-transition-timing-function);
 }
 .customers-icon {
 	fill: currentColor;
