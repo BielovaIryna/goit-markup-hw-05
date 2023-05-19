@@ -486,7 +486,7 @@ button {
 	padding: 12px 24px;
 	transition: background-color var(--main-transition-duration) var(--main-transition-timing-function),
 		color var(--main-transition-duration) var(--main-transition-timing-function),
-		border var(--main-transition-duration) var(--main-transition-timing-function),
+		border-color var(--main-transition-duration) var(--main-transition-timing-function),
 		box-shadow var(--main-transition-duration) var(--main-transition-timing-function);
 }
 .portfolio-filtr-btn:hover,
@@ -502,11 +502,12 @@ button {
 	row-gap: 48px;
 	justify-content: center;
 }
-.portfolio-link,
-.portfolio-link .portfolio-overlay {
+.portfolio-link{
 	display: block;
-	transition: box-shadow var(--main-transition-duration) var(--main-transition-timing-function),
-		transform var(--main-transition-duration) var(--main-transition-timing-function);
+	transition: box-shadow var(--main-transition-duration) var(--main-transition-timing-function);
+}
+.portfolio-link .portfolio-overlay {
+	transition:	transform var(--main-transition-duration) var(--main-transition-timing-function);
 }
 .portfolio-link:hover,
 .portfolio-link:focus,
