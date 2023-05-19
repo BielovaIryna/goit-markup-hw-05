@@ -183,12 +183,9 @@ button {
 	color: var(--text-color);
 }
 
-.main-nav-item {
-	position: relative;
-}
-
 .current-page {
 	color: var(--pressed-state-color);
+	position: relative;
 }
 .current-page::after {
 	position: absolute;
@@ -199,7 +196,7 @@ button {
 	border-radius: 2px;
 	background-color: var(--pressed-state-color);
 	left: 0;
-	bottom: -20px;
+	bottom: -1px;
 }
 .hero {
 	max-width: 1440px;
@@ -237,49 +234,7 @@ button {
 .hero-btn:focus {
 	background-color: var(--pressed-state-color);
 }
-.hero-backdrop {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background-color: rgba(46, 47, 66, 0.4);
-	opacity: 1;
-	transition: opacity var(--main-transition-duration) var(--main-transition-timing-function);
-}
-.hero-backdrop.is-hidden {
-	opacity: 0;
-	pointer-events: none;
-	visibility: auto;
-}
-.hero-modal {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%) scale(1);
-	width: 408px;
-	height: 576px;
-	background-color: var(--modal-background-color);
-	border-radius: 4px;
-	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
-	
-}
-.hero-backdrop.is-hidden .hero-modal{
-	transform: translate(-50%, -50%) scale(0.9);
-}
-.hero-modal-btn {
-	width: 24px;
-	height: 24px;
-	background-color: var(--accent-color);
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 25px;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	top: 24px;
-	right: 24px;
-}
+
 
 .principles-icon-block {
 	display: flex;
@@ -393,6 +348,8 @@ button {
 .customers-item {
 	width: calc((100% - 120px) / 6);
 	height: 88px;
+	transition: color var(--main-transition-duration) var(--main-transition-timing-function),
+		border-color var(--main-transition-duration) var(--main-transition-timing-function);
 }
 .customers-link {
 	display: flex;
@@ -404,8 +361,7 @@ button {
 	border: 1px solid var(--subtle-text-color);
 	border-radius: 4px;
 	color: var(--subtle-text-color);
-	transition: color var(--main-transition-duration) var(--main-transition-timing-function),
-		border-color var(--main-transition-duration) var(--main-transition-timing-function);
+	
 }
 .customers-icon {
 	fill: currentColor;
@@ -459,6 +415,56 @@ button {
 }
 .basement-left {
 	margin-right: 120px;
+}
+.hero-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(46, 47, 66, 0.4);
+	opacity: 1;
+	transition: opacity var(--main-transition-duration) var(--main-transition-timing-function);
+}
+.hero-backdrop.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+}
+.hero-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	width: 408px;
+	height: 576px;
+	background-color: var(--modal-background-color);
+	border-radius: 4px;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+	
+}
+.hero-backdrop.is-hidden .hero-modal{
+	transform: translate(-50%, -50%) scale(0.9);
+}
+.hero-modal-btn {
+	width: 24px;
+	height: 24px;
+	background-color: var(--accent-color);
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	top: 24px;
+	right: 24px;
+	transition: fill var(--main-transition-duration) var(--main-transition-timing-function);
+}
+.hero-modal-btn:hover,.hero-modal-btn:focus {
+	background-color: var(--pressed-state-color);
+}
+.hero-modal-btn:hover, .hero-modal-btn:focus{
+	fill: var(--white-background-color);
 }
 
 .portfolio {
