@@ -361,7 +361,7 @@ button {
 	border: 1px solid var(--subtle-text-color);
 	border-radius: 4px;
 	color: var(--subtle-text-color);
-	transition: border var(--main-transition-duration) var(--main-transition-timing-function), color var(--main-transition-duration) var(--main-transition-timing-function);
+	transition: border-color var(--main-transition-duration) var(--main-transition-timing-function), color var(--main-transition-duration) var(--main-transition-timing-function);
 }
 .customers-icon {
 	fill: currentColor;
