@@ -348,8 +348,7 @@ button {
 .customers-item {
 	width: calc((100% - 120px) / 6);
 	height: 88px;
-	transition: color var(--main-transition-duration) var(--main-transition-timing-function),
-		border-color var(--main-transition-duration) var(--main-transition-timing-function);
+	
 }
 .customers-link {
 	display: flex;
@@ -361,6 +360,8 @@ button {
 	border: 1px solid var(--subtle-text-color);
 	border-radius: 4px;
 	color: var(--subtle-text-color);
+	transition: color var(--main-transition-duration) var(--main-transition-timing-function),
+	border-color var(--main-transition-duration) var(--main-transition-timing-function);
 }
 .customers-icon {
 	fill: currentColor;
@@ -459,16 +460,16 @@ button {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	top: 24px;
 	right: 24px;
-	transition: border var(--main-transition-duration) var(--main-transition-timing-function),
-		background-color var(--main-transition-duration) var(--main-transition-timing-function);
+	transition: background-color var(--main-transition-duration) var(--main-transition-timing-function), border var(--main-transition-duration) var(--main-transition-timing-function);
 }
+
 .hero-modal-btn:hover,
 .hero-modal-btn:focus {
 	background-color: var(--pressed-state-color);
 	border: none;
 }
 .hero-modal-icon{
-	transition: fill var(--main-transition-duration) var(--main-transition-timing-function),
+	transition: fill var(--main-transition-duration) var(--main-transition-timing-function);
 }
 .hero-modal-btn:hover .hero-modal-icon,
 .hero-modal-btn:focus .hero-modal-icon{
